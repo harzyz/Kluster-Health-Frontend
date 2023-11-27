@@ -23,11 +23,13 @@
   .navbardown{
     display: flex;
     width: 100%;
-    border: 2px solid red;
+    /* border: 2px solid red; */
     height: 40px;
+    border-radius: 10px 10px 0 0;
     background-color: #fff;
     position: fixed ;
     bottom: 0;
   }
+
 
 }
