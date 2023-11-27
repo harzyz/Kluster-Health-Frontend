@@ -1,13 +1,12 @@
 .wrapper{
   width: 100%;
   height: 100%;
-  padding-bottom: 500px;
+  padding-bottom: 50px;
 }
 .contain{
   display: flex;
   width: 100%;
   height: 100%;
-  /* border: 2px solid red; */
 }
 .fixed{
   position: fixed;
@@ -16,14 +15,13 @@
 }
 .outer{
   width: 243px;
-  /* border: 2px solid red; */
-
 }
 @media screen and (max-width: 500px){
   .outer{
     display: none;
   }
   .navbardown{
+    display: flex;
     width: 100%;
     border: 2px solid red;
     height: 40px;

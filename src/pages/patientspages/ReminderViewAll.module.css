@@ -81,9 +81,9 @@
     width: 100%;
     flex-direction: column-reverse;
   }
-  /* .yearn{
-    width: 12%;
-  } */
+  .yearn{
+    flex-direction: column;
+  }
   .medReminder{
     gap: 30%;
     justify-content: initial;

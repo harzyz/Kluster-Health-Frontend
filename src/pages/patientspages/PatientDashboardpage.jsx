@@ -17,7 +17,7 @@ function PatientDashboardpage({children}) {
         {children}
       </div>
       <div className={styles.navbardown}>
-        
+        <Sidebar />
       </div>
     </div>
   )

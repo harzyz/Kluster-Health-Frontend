@@ -6,11 +6,6 @@ import settings from '../images/icons/settings.png'
 import support from '../images/icons/support.png'
 
 function Sidebar() {
-  // const navigate = useNavigate()
-
-  const handleClick = () => {
-    console.log('object')
-  }
 
   return (
     <div className={styles.wrapper}>
@@ -44,7 +39,7 @@ function Sidebar() {
       
           
       <Link to="/">
-        <button onClick={handleClick}>Logout</button>
+        <button>Logout</button>
       </Link>
     </div>
   );
