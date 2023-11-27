@@ -10,7 +10,7 @@ function ReminderViewAll() {
       <div className={styles.wrapper}>
         <div className={styles.outercontain}>
           <div className={styles.head}>
-            <h3>Remainders</h3>
+            <h3>Reminders</h3>
             <Button fs="14px" w="52px" h="28px" title={"Add"} bg="#A6CBFA" />
           </div>
           <div className={styles.contain}>

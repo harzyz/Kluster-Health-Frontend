@@ -11,6 +11,7 @@ import Signup from './pages/Signup';
 import Login from './pages/Login';
 import DoctorsProfileCreate from './pages/doctorspages/DoctorsProfileCreate';
 import ReminderViewAll from './pages/patientspages/ReminderViewAll';
+import Auth from './Auth';
 
 
 function App() {
@@ -29,13 +30,18 @@ function App() {
           <Route path='/cprofile' element={<PatientProfileCreate />} />
           <Route path='/cdprofile' element={<DoctorsProfileCreate />} />
           <Route path='/ddashboard' element={
+            <Auth>
           <Dashboardpage>
             <Overviewpage />
-          </Dashboardpage>} />
+          </Dashboardpage>
+          </Auth>
+        } />
           <Route path='/pdashboard' element={
+            <Auth>
             <PatientDashboardpage>
               <PatientsOverview />
             </PatientDashboardpage>
+            </Auth>
           } />
           <Route path='/pdoctors' element={
             <PatientDashboardpage>

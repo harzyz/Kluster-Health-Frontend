@@ -7,6 +7,7 @@
   flex-direction: column;
   gap: 20px;
   padding: 40px;
+  border: 2px solid red;
 }
 h3{
   margin-top: 0;
@@ -38,6 +39,7 @@ h3{
   background-color: #FFFFFF;
   box-shadow: rgba(0, 0, 0, 0.24) 0px 3px 8px;
   display: flex;
+  width: 100%;
   height: 240px;
   flex-direction: column;
   gap: 30px;
@@ -199,6 +201,7 @@ h3{
 @media screen and (max-width: 500px) {
   .wrapper{
     padding: 24px;
+    width: 100%;
   }
   .top{
     flex-direction: column;

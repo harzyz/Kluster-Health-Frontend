@@ -6,16 +6,82 @@ import profImg from "../../images/profileBgimg.png";
 function DoctorsProfileCreate() {
   const inputRef = useRef(null);
   const [profileImage, setProfileImage] = useState("");
+  const [profileForm, setProfileForm] = useState({
+    name: "",
+    email: "",
+    phone_number: "",
+    address: "",
+    gender: "",
+    clinic_affiliation: "",
+    specialization: "",
+    license_id: "",
+  });
+
+  const onChange = (e) => {
+    // console.log(e.target.value);
+    setProfileForm((prev) => ({
+      ...prev,
+      [e.target.id]: e.target.value
+    }))
+  };
+
+
+  const {
+    name,
+    email,
+    phone_number,
+    address,
+    gender,
+    clinic_affiliation,
+    specialization,
+    license_id,
+  } = profileForm;
 
   const handleImgUpload = () => {
-    console.log(inputRef);
+    // console.log(inputRef);
     inputRef.current.click();
   };
   const handleImgChange = (e) => {
     const file = e.target.files[0];
-    console.log(file);
+    const reader = new FileReader();
     setProfileImage(file);
+    // reader.onloadend = () => {
+    //   // The result property contains the data as a data URL
+      
+    // };
+
+    // Read the file as a data URL
+    if (file) {
+      reader.readAsDataURL(file);
+    }
   };
+  console.log(profileImage, 'profileImage')
+
+  const onSubmit = (e) => {
+    e.preventDefault()
+    const authToken = localStorage.getItem('token');
+    let url = 'https://digital-healthcare-solution-v1.onrender.com/api/healthcare-provider/'
+    const payload = {
+      ...profileForm,
+      profile_picture: profileImage,
+    }
+    console.log(payload, 'payload')
+    fetch(url, {
+      method: 'PUT',
+      headers: {
+        Authorization: `Bearer ${authToken}`,
+        "Content-Type": "application/json"
+      },
+      body: JSON.stringify(payload)
+    }).then((res) => res.json())
+    .then((data) => {
+
+    })
+    .catch((err) => {
+      
+    });
+    console.log(profileForm)
+  }
 
   return (
     <div className={styles.wrapper}>
@@ -35,7 +101,7 @@ function DoctorsProfileCreate() {
                 ) : (
                   <img src={profImg} alt="" />
                 )}
-                <input onChange={handleImgChange} type="file" ref={inputRef} />
+                <input id="profile_picture" onChange={handleImgChange} type="file" ref={inputRef} />
               </div>
               <button onClick={handleImgUpload} className={styles.imgUploadBtn}>
                 Add Profile Picture
@@ -45,19 +111,27 @@ function DoctorsProfileCreate() {
               <h2>Bio</h2>
               <form className={styles.bioform}>
                 <div className={styles.formControl}>
-                  <input type="text" placeholder="Full Name" />
+                  <input onChange={onChange} id="name" value={name} type="text" placeholder="Full Name" />
                 </div>
                 <div className={styles.formControl}>
-                  <input type="text" placeholder="Hospital / Clinic" />
+                  <input onChange={onChange} id="clinic_affiliation" value={clinic_affiliation} type="text" placeholder="Hospital / Clinic" />
                 </div>
                 <div className={styles.formControl}>
-                  <input type="text" placeholder="Gender" />
+                  <select
+                    onChange={onChange}
+                    value={gender}
+                    name="user_type"
+                    id="gender">
+                    <option value="M">Male</option>
+                    <option value="F">Female</option>
+                    <option value="O">Other</option>
+                  </select>
                 </div>
                 <div className={styles.formControl}>
-                  <input type="text" placeholder="Specialization" />
+                  <input onChange={onChange} id="specialization" value={specialization} type="text" placeholder="Specialization" />
                 </div>
                 <div className={styles.formControl}>
-                  <input type="text" placeholder="License Number" />
+                  <input onChange={onChange} id="license_id" value={license_id} type="text" placeholder="License Number" />
                 </div>
               </form>
             </div>
@@ -65,58 +139,30 @@ function DoctorsProfileCreate() {
           <div className={styles.prevForm}>
             <form className={styles.formGroup}>
               <div className={styles.formControl}>
-                <input type="text" placeholder="Email Address" />
+                <input onChange={onChange} id="email" value={email} type="text" placeholder="Email Address" />
               </div>
               <div className={styles.formControl}>
-                <input type="text" placeholder="Phone Number" />
+                <input
+                  onChange={onChange}
+                  id="phone_number"
+                  value={phone_number}
+                  type="text"
+                  placeholder="Phone Number"
+                />
               </div>
               <div className={styles.formControl}>
-                <input type="text" placeholder="Address" />
+                <input onChange={onChange} id="address" value={address} type="text" placeholder="Address" />
               </div>
             </form>
           </div>
         </div>
-        <div className={styles.nxtForm}>
-          <form className={styles.medicationInfo}>
-            <div className={styles.formControl}>
-              <input type="text" placeholder="Name of medication" />  
-            </div>
-            <div className={styles.formControl1}>
-              <div className={styles.formControlgroup}>
-                <input type="text" placeholder="Start Date" /> 
-              </div>
-              <div className={styles.formControlgroup}>
-                <input type="text" placeholder="End Date" /> 
-              </div>
-            </div>
-            <div className={styles.formControl}>
-              <input type="text" placeholder="Prescribed by" /> 
-            </div>
-            <div className={styles.formControl}>
-              <input type="text" placeholder="Prescribed in" />  
-            </div>
-            <div className={styles.formControl1}>
-              <div className={styles.formControlgroup}>
-                <input type="text" placeholder="Dosage Strength" />  
-              </div>
-              <div className={styles.formControlgroup}>
-                <input type="text" placeholder="Dosage Form" /> 
-              </div>
-            </div>
-            <div className={styles.formControl}>
-              <input type="text" placeholder="Administration Route" /> 
-            </div>
-            <div className={styles.formControl}>
-              <input type="text" placeholder="Administration Frequency" /> 
-            </div>
-          </form>
-              <Link to="/pdashboard">
-                <button className={styles.createBtn}>Create an Account</button>
-              </Link>
-        </div>
+
+        <Link to="/ddashboard">
+          <button onClick={onSubmit} className={styles.createBtn}>Create an Account</button>
+        </Link>
       </div>
     </div>
-  )
+  );
 }
 
-export default DoctorsProfileCreate
+export default DoctorsProfileCreate;

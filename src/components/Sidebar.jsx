@@ -1,5 +1,5 @@
 import React  from "react";
-import { Link } from 'react-router-dom'
+import { Link, useNavigate } from 'react-router-dom'
 import styles from "./Sidebar.module.css";
 import Sidebardata from "./Sidebardata";
 import settings from '../images/icons/settings.png'
@@ -8,6 +8,11 @@ import support from '../images/icons/support.png'
 
 
 function Sidebar() {
+  const navigate = useNavigate()
+  const logout = () => {
+    localStorage.removeItem('token')
+    navigate('/')
+  }
 
   return (
     <div className={styles.wrapper}>
@@ -40,9 +45,9 @@ function Sidebar() {
       </div>
       
           
-      <Link to="/">
-        <button>Logout</button>
-      </Link>
+      {/* <Link to="/"> */}
+        <button onClick={logout}>Logout</button>
+      {/* </Link> */}
     </div>
   );
 }

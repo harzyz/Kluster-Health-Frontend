@@ -2,6 +2,7 @@ import React from 'react'
 import styles from '../doctorspages/Dashboardpage.module.css'
 import Navbar from '../../components/Navbar'
 import Sidebar from '../../components/Sidebar'
+import NavDownBar from '../../components/NavDownBar'
 
 
 function PatientDashboardpage({children}) {
@@ -17,7 +18,7 @@ function PatientDashboardpage({children}) {
         {children}
       </div>
       <div className={styles.navbardown}>
-        <Sidebar />
+        <NavDownBar />
       </div>
     </div>
   )

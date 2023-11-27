@@ -236,6 +236,9 @@ h3{
     padding: 24px;
     padding-bottom: 500px;
   }
+  .yearn{
+    width: 50%;
+  }
   .doctorsListContainer{
     flex-direction: column-reverse;
     width: 100%;

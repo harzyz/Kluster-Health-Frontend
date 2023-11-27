@@ -1,5 +1,6 @@
 import React, { useState } from "react";
-import { toast } from 'react-toastify';
+import { ToastContainer, toast } from 'react-toastify';
+  import 'react-toastify/dist/ReactToastify.css';
 import styles from "./Registerpage.module.css";
 import { Link, useNavigate } from "react-router-dom";
 
@@ -32,14 +33,21 @@ function Login() {
         "Content-Type": "application/json",
       },
       body: JSON.stringify(formData)
-    }).then((res) => res.json())  // Parse the response as JSON
+    }).then((res) => res.json())
     .then((data) => {
       console.log(data)
-      toast.success('Registered' + data.message);  // Adjust here based on your response structure
-      navigate('/pdashboard');
+      toast.success('Registered' + data.message); 
+      localStorage.setItem('token', data.access)
+      localStorage.setItem('token', data.refresh)
+      if(data.user_type === "PT"){
+        navigate('/pdashboard');
+      }else{
+        navigate('/ddashboard')
+      }
     })
     .catch((err) => {
-      // toast.error('Failed');
+      toast.error('User not Found', err.detail)
+      navigate('/')
     });
     console.log(formData)
   }
@@ -47,6 +55,7 @@ function Login() {
 
   return (
     <div className={styles.formsContainer}>
+      <ToastContainer />
       <h2>Welcome</h2>
       <form className={styles.regForm}>
         <div className={styles.formControl}>

@@ -34,11 +34,15 @@ function Signup() {
         "Content-Type": "application/json",
       },
       body: JSON.stringify(formData)
-    }).then((res) => res.json())  // Parse the response as JSON
+    }).then((res) => res.json())
     .then((data) => {
       console.log(data)
-      toast.success('Registered' + data.message);  // Adjust here based on your response structure
-      navigate('/cprofile');
+      toast.success('Registered' + data.message);
+      if(formData.user_type === 'PT'){
+        navigate('/cprofile');
+      }else{
+        navigate('/cdprofile')
+      }
     })
     .catch((err) => {
       // toast.error('Failed');
@@ -54,6 +58,7 @@ function Signup() {
       <ToastContainer />
       <form className={styles.regForm}>
         <select onChange={onChange} value={user_type} name="user_type" id='user_type'>
+          <option value="">Choose Role</option>
           <option value="PT">Patient</option>
           <option value="HP">Health</option>
         </select>
