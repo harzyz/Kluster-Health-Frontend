@@ -1,0 +1,42 @@
+.wrapper{
+  width: 100%;
+  height: 100%;
+  padding: 54px;
+  font-family: Poppins;
+  background-color: #EFEDEE;
+}
+h3{
+  margin-top: 0;
+}
+.innerWrapper{
+  display: grid;
+  grid-template-columns: 1fr 1fr 1fr;
+  gap: 24px;
+}
+.doctorsTab{
+  width: 100%;
+  height: 190px;
+  padding: 15px;
+  background-color: #FFF;
+  border-radius: 10px;
+}
+.profileContainer{
+  display: flex;
+  align-items: center;
+  gap: 30px;
+}
+.profileInfo{
+  display: flex;
+  flex-direction: column;
+  gap: 8px;
+}
+.yearn{
+  display: flex;
+  width: 100%;
+  justify-content: space-between;
+}
+@media screen and (max-width: 500px) {
+  .innerWrapper{
+    grid-template-columns: 1fr;
+  }
+}

@@ -1,0 +1,192 @@
+.wrapper{
+  display: flex;
+  font-family: Arial, Helvetica, sans-serif;
+  width: 100%;
+  height: 100vh;
+}
+.head{
+  font-size: 21px;
+  margin: 0;
+  text-align: center;
+}
+.regInstructions{
+  width: 50%;
+  height: 100%;
+  background: #003ABC;
+  display: flex;
+  flex-direction: column;
+  align-items: flex-start;
+  gap: 30px;
+}
+.circleSvg{
+  position: absolute;
+  top: 0px;
+  left: 0px;
+}
+.circleSvg img{
+  width: 100%;
+  height: 100%;
+}
+.crossSvg{
+  position: absolute;
+  top: 80px;
+  left: 18px;
+  width: 150px;
+  height: 150px;
+}
+.crossSvg img{
+  width: 100%;
+  height: 100%;
+}
+.whatWedo{
+  position: relative;
+  padding-left: 87px;
+  height: 55%;
+  font-family: Poppins;
+  font-weight: 700;
+  color: #fff;
+  width: 100%;
+}
+.firstAid{
+  position: absolute;
+  top: 150px;
+  right: 38px;
+}
+.redCross{
+  position: absolute;
+  bottom: 80px;
+  left: 38px;
+}
+.whatWedo ul{
+  display: flex;
+  flex-direction: column;
+  gap: 25px;
+  font-size: 20px;
+  font-weight: 400;
+  font-family: Inter;
+}
+.regImg{
+  position: relative;
+  height: 45%;
+  width: 100%;
+  display: flex;
+  justify-content: center;
+  align-items: flex-end;
+}
+.regImg img{
+  object-fit: contain;
+  height: 80%;
+  width: 60%;
+}
+.regBtns{
+  display: flex;
+  justify-content: center;
+  gap: 24px;
+}
+.regBtns button{
+  width: 248px;
+  height: 54px;
+  background: #024DAD;
+  border: 0;
+  font-weight: 700;
+  border-radius: 10px;
+  font-family: Arial, Helvetica, sans-serif;
+  font-size: 20px;
+  color: #fff;
+}
+.regBtns button:nth-child(2){
+  background: #A6CBFA;
+  color: #024DAD;
+}
+.forms{
+  width: 50%;
+  display: flex;
+  justify-content: center;
+  background: #FFFFFF;
+  font-family: Poppins;
+}
+.formsContainer{
+  width: 80%;
+  display: flex;
+  flex-direction: column;
+  gap: 10px;
+  text-align: center;
+}
+.formsContainer h2{
+  color: #003ABC;
+  font-family: Poppins;
+  font-size: 25px;
+  font-weight: 700;
+}
+.formControl{
+  display: flex;
+  flex-direction: column;
+  text-align: start;
+}
+.what{
+  font-size: 24px;
+}
+.regForm{
+  display: flex;
+  flex-direction: column;
+  gap: 50px;
+}
+.regForm label{
+  font-size: 20px;
+  color: #969393;
+}
+.regForm input{
+  height: 40px;
+  border: none;
+  border-bottom: 2px solid #96939359;
+  font-size: 20px;
+  color: #969393;
+}
+.regForm select{
+  color: #003abc;
+  width: fit-content;
+  border: none;
+  font-size: 25px;
+}
+.createBtn{
+  width: 100%;
+  background: #024DAD;
+  border: 0;
+  border-radius: 10px;
+  font-family: Arial, Helvetica, sans-serif;
+  font-size: 20px;
+  color: #fff;
+  height: 72px;
+}
+.role{
+  font-family: Arial, Helvetica, sans-serif;
+  font-size: 28px;
+  display: flex;
+  width: 100%;
+  justify-content: space-between;
+  cursor: pointer;
+}
+.role span{
+  width: 50%;
+  text-align: center;
+}
+.chooseRole{
+  border-bottom: 5px solid #024DAD;
+  color: #024DAD;
+}
+.unchooseRole{
+  border-bottom: none;
+  color: initial;
+}
+.displayN{
+  display: none;
+}
+.forgotPassword{
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+}
+.rememberMe{
+  display: flex;
+  align-items: center;
+}

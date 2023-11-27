@@ -1,0 +1,263 @@
+.wrapper{
+  background: #EFEDEE;
+  width: 100%;
+  height: 100%;
+  padding: 55px;
+  display: flex;
+  font-family: Poppins;
+  gap: 5%;
+}
+.medicationsWrapper{
+  display: flex;
+  flex-direction: column;
+  gap: 20px;
+  width: 65%;
+  height: 100%;
+  /* border: 2px solid blue; */
+}
+.medicationContainer{
+  width: 100%;
+  height: 50%;
+  /* border: 2px solid purple; */
+}
+h3{
+  margin-top: 0;
+}
+.medicationPrescription{
+  display: flex;
+  flex-direction: column;
+  width: 100%;
+  height: 100%;
+  gap: 20px;
+  /* border: 2px solid red; */
+}
+.medicationsTab{
+  width: 100%;
+  padding: 24px;
+  height: 100%;
+  background-color: #FFFFFF;
+  border-radius: 10px;
+  box-shadow: rgba(0, 0, 0, 0.24) 0px 3px 8px;
+}
+.profileInfo{
+  display: flex;
+  flex-direction: column;
+  gap: 8px;
+}
+.keyInfo{
+  display: flex;
+  width: 100%;
+  flex-direction: column;
+  gap: 10px;
+  text-align: start;
+}
+.detailKey{
+  display: flex;
+  width: 100%;
+  justify-content: space-evenly;
+  /* text-align: left; */
+}
+.head{
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+}
+.detailKey span{
+  width: 100%;
+}
+/* .reminderConfirm{
+  border: 2px solid lawngreen; 
+} */
+.reminderConfirmItem{
+  padding: 10px;
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 10px;
+}
+.medReminder{
+  width: 100%;
+  height: 100px;
+  padding: 16px;
+  border-radius: 10px;
+  background-color: #FFFFFF;
+  box-shadow: rgba(0, 0, 0, 0.24) 0px 3px 8px;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+}
+.medicationDetails{
+  display: flex;
+  flex-direction: column;
+  /* width: 70%; */
+}
+.deleteMedBtn{
+  border: none;
+  width: 73px;
+  height: 28px;
+  background-color: #A6CBFA;
+  padding: 6px 16px;
+  border-radius: 8px;
+  color: #FFF;
+}
+.doctorsListContainer{
+  width: 30%;
+  height: 100%;
+  display: flex;
+  flex-direction: column;
+  gap: 45px;
+  /* border: 2px solid green; */
+}
+.doctorsList{
+  width: 100%;
+  height: 700px;
+  border-radius: 10px;
+  display: flex;
+  background-color: #F4F9FF;
+  flex-direction: column;
+  align-items: center;
+  /* border: 2px solid yellow; */
+}
+.bluePart{
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  color: #fff;
+  text-align: center;
+  width: 100%;
+  height: 30%;
+  background: #024DAD;
+  border-radius: 10px 10px 0 0;
+  padding: 15px;
+}
+.modalpopup{
+  width: 50vw;
+}
+.bluePart h3{
+  margin-bottom: 8px;
+}
+.whitePart{
+  margin-top: -50px;
+  width: 80%;
+  height: 70%;
+  /* border: 2px solid green; */
+  display: flex;
+  flex-direction: column;
+  gap: 20px;
+  /* background: #FFF; */
+  /* border-radius: 0 0 10px 10px; */
+}
+.adoctor{
+  padding: 16px;
+  background-color: #FFF;
+  border-radius: 10px;
+}
+.patientProfile{
+  /* border: 2px solid purple; */
+  height: 300px;
+  padding: 24px;
+  background-color: #FFF;
+  border-radius: 10px;
+}
+.profileContainer{
+  display: flex;
+  align-items: center;
+  gap: 30px;
+}
+.inviteDoctors{
+  height: 52px;
+  background: #024DAD;
+  border: none;
+  border-radius: 10px;
+  color: #FFF;
+  font-size: 18px;
+  font-family: Poppins;
+}
+.nxtForm{
+  /* border: 2px solid purple; */
+  width: 100%;
+  height: 100%;
+  padding: 20px;
+  /* padding: 60px; */
+}
+.medicationInfo{
+  display: flex;
+  flex-direction: column;
+  width: 100%;
+  gap: 10px;
+}
+.btnposition{
+  display: flex;
+  width: 100%;
+  justify-content: flex-end;
+}
+.formControl{
+  display: flex;
+  flex-direction: column;
+  text-align: start;
+}
+.formControl input,textarea{
+  height: 40px;
+  border: 2px solid #969393;
+  border-radius: 5px;
+  font-size: 16px;
+  padding-left: 10px;
+  font-family: Arial, Helvetica, sans-serif;
+}
+.formControlgroup{
+  width: 45%;
+}
+.formControlgroup input{
+  height: 40px;
+  padding-left: 10px;
+  width: 100%;
+  border: 2px solid #969393;
+  border-radius: 5px;
+  font-size: 16px;
+  font-family: Arial, Helvetica, sans-serif;
+}
+.formGroup{
+  display: flex;
+  flex-direction: column;
+  gap: 25px;
+}
+.formControl1{
+  display: flex;
+  justify-content: space-between;
+}
+.yearn{
+  width: 20%;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+}
+@media screen and (max-width: 500px) {
+  .wrapper{
+    flex-direction: column-reverse;
+    padding: 44px;
+    padding-bottom: 500px;
+  }
+  .doctorsListContainer{
+    flex-direction: column-reverse;
+    width: 100%;
+  }
+  .patientProfile{
+    width: 100%;
+  }
+  .reminderConfirmItem{
+    width: 100%;
+    grid-template-columns: 1fr;
+  }
+  .medicationsWrapper{
+    width: 100%;
+  }
+  .modalpopup{
+    width: 80vw;
+  }
+  .formControl1{
+    flex-direction: column;
+    gap: 10px;
+  }
+  .formControlgroup{
+    width: 100%;
+  }
+}

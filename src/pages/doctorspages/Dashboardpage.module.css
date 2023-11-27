@@ -1,0 +1,21 @@
+.contain{
+  display: flex;
+  width: 100%;
+  height: 100%;
+  /* border: 2px solid red; */
+}
+.fixed{
+  position: fixed;
+  top: 72px;
+
+}
+.outer{
+  width: 243px;
+  /* border: 2px solid red; */
+
+}
+@media screen and (max-width: 500px){
+  .outer{
+    display: none;
+  }
+}
