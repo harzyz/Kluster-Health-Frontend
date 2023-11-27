@@ -1,10 +1,7 @@
 import React from "react";
 import styles from "./Overviewpage.module.css";
 import DoctorOverviewData from "../../data/DoctorOverviewData";
-// import image1 from '../images/totalpatients.png'
-// import image2 from '../images/successrate.png'
-// import image3 from '../images/totalappointments.png'
-// import image4 from '../images/activepatients.png'
+import ActiveInactive from "../../components/ActiveInactive";
 
 function Overviewpage() {
   return (
@@ -89,7 +86,7 @@ function Overviewpage() {
               </div>
               <div className={styles.detailKey}>
                 <span className={styles.detailKeyText}>Status</span>
-                <span className={styles.patientStatusA}>Active</span>
+                <ActiveInactive title={item.title}/>
               </div>
             </div>
           </div>

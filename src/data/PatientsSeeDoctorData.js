@@ -106,7 +106,7 @@ const PatientsSeeDoctorData = [
     doctorsname: 'John Doe',
     proffesion: 'Therapist',
     email: 'johndoe@gmail.com'
-  },
+  }
 ]
 
 export default PatientsSeeDoctorData

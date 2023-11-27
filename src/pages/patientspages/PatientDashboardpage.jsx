@@ -6,7 +6,7 @@ import Sidebar from '../../components/Sidebar'
 
 function PatientDashboardpage({children}) {
   return (
-    <div>
+    <div className={styles.wrapper}>
       <Navbar />
       <div className={styles.contain}>
         <div className={styles.outer}>
@@ -15,6 +15,9 @@ function PatientDashboardpage({children}) {
           </div>
         </div>
         {children}
+      </div>
+      <div className={styles.navbardown}>
+        
       </div>
     </div>
   )

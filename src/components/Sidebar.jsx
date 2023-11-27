@@ -18,20 +18,26 @@ function Sidebar() {
         {Sidebardata.map((item) => (
           <Link className={styles.linkedItem} to={item.path}>
             <div className={styles.sidebarItem} key={item.id}>
-            <img src={item.icon} alt="" />
-            <span>{item.title}</span>
-          </div>
+              <div>
+                <img src={item.icon} alt="" />
+              </div>
+              <span>{item.title}</span>
+            </div>
           </Link>
         ))}
       </div>
 
       <div className={styles.barContainer}>
         <div className={styles.sidebarItem}>
-          <img src={settings} alt="" />
+          <div>
+            <img src={settings} alt="" />
+          </div>
           <span>Settings</span>
         </div>
         <div className={styles.sidebarItem}>
-        <img src={support} alt="" />
+        <div>
+          <img src={support} alt="" />
+        </div>
         <span>Help & Support</span>
         </div>
       </div>

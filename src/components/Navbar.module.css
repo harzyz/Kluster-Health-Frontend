@@ -44,9 +44,15 @@
   align-items: center;
   gap: 20px;
 }
+.hamburger{
+  display: none;
+}
 @media screen and (max-width: 500px) {
   .wrapper{
     height: 56px;
+  }
+  .hamburger{
+    display: block;
   }
   .outer{
     height: 56px;
@@ -58,7 +64,7 @@
     display: none;
   }
   .search{
-    width: fit-content;
+    display: none;
   }
   .search input{
     display: none;

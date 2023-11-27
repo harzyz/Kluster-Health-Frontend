@@ -7,7 +7,8 @@ const DoctorOverviewData = [
     fullName: 'Jane Cooper',
     email: 'janecooper@example.com',
     fileNumber: '5623780DG',
-    addmitedDate: '12/02/23'
+    addmitedDate: '12/02/23',
+    title: 'Active'
   },
   {
     id: 2,
@@ -15,7 +16,8 @@ const DoctorOverviewData = [
     fullName: 'Jane Cooper',
     email: 'janecooper@example.com',
     fileNumber: '5623780DG',
-    addmitedDate: '12/02/23'
+    addmitedDate: '12/02/23',
+    title: 'Inactive'
   },
   {
     id: 3,
@@ -23,7 +25,8 @@ const DoctorOverviewData = [
     fullName: 'Jane Cooper',
     email: 'janecooper@example.com',
     fileNumber: '5623780DG',
-    addmitedDate: '12/02/23'
+    addmitedDate: '12/02/23',
+    title: 'Active'
   },
   {
     id: 4,
@@ -31,7 +34,8 @@ const DoctorOverviewData = [
     fullName: 'Jane Cooper',
     email: 'janecooper@example.com',
     fileNumber: '5623780DG',
-    addmitedDate: '12/02/23'
+    addmitedDate: '12/02/23',
+    title: 'Inactive'
   },
   {
     id: 5,
@@ -39,7 +43,8 @@ const DoctorOverviewData = [
     fullName: 'Jane Cooper',
     email: 'janecooper@example.com',
     fileNumber: '5623780DG',
-    addmitedDate: '12/02/23'
+    addmitedDate: '12/02/23',
+    title: 'Active'
   },
   {
     id: 6,
@@ -47,7 +52,8 @@ const DoctorOverviewData = [
     fullName: 'Jane Cooper',
     email: 'janecooper@example.com',
     fileNumber: '5623780DG',
-    addmitedDate: '12/02/23'
+    addmitedDate: '12/02/23',
+    title: 'Inawctive'
   },
 ]
 

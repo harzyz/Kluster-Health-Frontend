@@ -3,6 +3,7 @@ import styles from "./Navbar.module.css";
 import searchIcon from "../images/iconoir_search.svg";
 import notifyIcon from "../images/mi_notification.png";
 import profilePic from "../images/profilepic.png";
+import hamburger from "../images/icons/hamburger.png"
 
 function Navbar() {
   return (
@@ -11,6 +12,9 @@ function Navbar() {
         <div className={styles.wrapper}>
           <span>Name</span>
           <span>Doctors Dashboard</span>
+          <div className={styles.hamburger}>
+            <img src={hamburger} alt="" />
+          </div>
           <div className={styles.search}>
             <input type="text" placeholder="Search here" />
             <img src={searchIcon} alt="" />

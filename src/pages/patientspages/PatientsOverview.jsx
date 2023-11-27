@@ -10,6 +10,19 @@ import { Link } from "react-router-dom";
 function PatientsOverview() {
   const [open, setOpen] = useState(false);
   const [open2, setOpen2] = useState(false);
+  const [modalMedication, setModalMedication] = useState({
+    medicationName: ""
+  });
+
+  const { medicationName } = modalMedication;
+
+  const onChange = (e) => {
+    // console.log(e.target.value);
+    setModalMedication((prev) => ({
+      ...prev,
+      [e.target.id]: e.target.value
+    }))
+  };
 
   const onClose = () => {
     setOpen(false);
@@ -39,7 +52,7 @@ function PatientsOverview() {
               </div>
               <div className={styles.keyInfo}>
                 <div className={styles.detailKey}>
-                  <span>File Number</span>
+                  <span>{medicationName}</span>
                   <span>53536373</span>
                 </div>
                 <div className={styles.detailKey}>
@@ -175,7 +188,7 @@ function PatientsOverview() {
             <form className={styles.medicationInfo}>
               <div className={styles.formControl}>
                 <label>Name of medication</label>
-                <input type="text" placeholder="Name of medication" />
+                <input type="text" placeholder="Name of medication" id="medicationName" onChange={onChange} value={medicationName} />
               </div>
               <div className={styles.formControl1}>
                 <div className={styles.formControlgroup}>

@@ -39,23 +39,19 @@
   display: flex;
   flex-direction: column;
   gap: 45px;
-  /* border: 2px solid green; */
 }
 .doctorsList{
   width: 100%;
   height: 100%;
   border-radius: 10px;
   display: flex;
-  /* background-color: #F4F9FF; */
   flex-direction: column;
   gap: 15px;
   align-items: center;
-  border: 2px solid yellow;
 }
 .medicationDetails{
   display: flex;
   flex-direction: column;
-  /* width: 70%; */
 }
 .deleteMedBtn{
   border: none;
@@ -84,5 +80,12 @@
   .doctorsListContainer{
     width: 100%;
     flex-direction: column-reverse;
+  }
+  /* .yearn{
+    width: 12%;
+  } */
+  .medReminder{
+    gap: 30%;
+    justify-content: initial;
   }
 }

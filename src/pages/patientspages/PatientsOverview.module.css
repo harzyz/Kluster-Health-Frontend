@@ -233,7 +233,7 @@ h3{
 @media screen and (max-width: 500px) {
   .wrapper{
     flex-direction: column-reverse;
-    padding: 44px;
+    padding: 24px;
     padding-bottom: 500px;
   }
   .doctorsListContainer{

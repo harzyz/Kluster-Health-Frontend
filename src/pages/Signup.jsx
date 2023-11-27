@@ -55,7 +55,7 @@ function Signup() {
       <form className={styles.regForm}>
         <select onChange={onChange} value={user_type} name="user_type" id='user_type'>
           <option value="PT">Patient</option>
-          <option value="HT">Health</option>
+          <option value="HP">Health</option>
         </select>
         <div className={styles.formControl}>
           <label htmlFor="">Full Name</label>

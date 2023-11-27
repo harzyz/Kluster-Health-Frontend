@@ -197,6 +197,9 @@ h3{
   font-size: 18px;
 }
 @media screen and (max-width: 500px) {
+  .wrapper{
+    padding: 24px;
+  }
   .top{
     flex-direction: column;
   }
