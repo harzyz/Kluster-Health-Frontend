@@ -2,6 +2,7 @@ import React from 'react'
 import styles from './Dashboardpage.module.css'
 import Navbar from '../../components/Navbar'
 import Sidebar from '../../components/Sidebar'
+import NavDownBar from '../../components/NavDownBar'
 
 function Dashboardpage({children}) {
   return (
@@ -14,6 +15,9 @@ function Dashboardpage({children}) {
           </div>
         </div>
         {children}
+      </div>
+      <div className={styles.navbardown}>
+        <NavDownBar />
       </div>
     </div>
   )
