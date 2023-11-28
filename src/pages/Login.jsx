@@ -58,7 +58,7 @@ function Login() {
     <div className={styles.formsContainer}>
       <ToastContainer />
       <h2>Welcome</h2>
-      <img src={image1} alt="" />
+      <img className={styles.remove} src={image1} alt="" />
       <form className={styles.regForm}>
         <div className={styles.formControl}>
           <label>Email</label>

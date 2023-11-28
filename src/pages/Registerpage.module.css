@@ -226,6 +226,9 @@
   display: flex;
   align-items: center;
 }
+.remove{
+  display: none;
+}
 @media screen and (max-width: 500px) {
   .wrapper{
     flex-direction: column;
@@ -239,6 +242,9 @@
   }
   .regImg{
     display: none;
+  }
+  .remove{
+    display: block;
   }
   .formsContainer{
     width: 80%;
