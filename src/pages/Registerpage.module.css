@@ -49,12 +49,13 @@
 }
 .firstAid{
   position: absolute;
-  top: 150px;
+  bottom: 80px;
   right: 38px;
 }
 .redCross{
   position: absolute;
   bottom: 80px;
+  width: 150px;
   left: 38px;
 }
 .whatWedo ul{
@@ -67,11 +68,12 @@
 }
 .regImg{
   position: relative;
-  height: 45%;
+  /* border: 2px solid red; */
+  height: 100%;
   width: 100%;
   display: flex;
   justify-content: center;
-  align-items: flex-end;
+  align-items: center;
 }
 .regImg img{
   object-fit: contain;
@@ -107,10 +109,11 @@
   font-family: Poppins;
 }
 .formsContainer{
-  width: 80%;
+  padding: 30px 0;
+  width: 65%;
   display: flex;
   flex-direction: column;
-  gap: 10px;
+  /* gap: 10px; */
   text-align: center;
 }
 .formsContainer h2{
@@ -118,46 +121,70 @@
   font-family: Poppins;
   font-size: 25px;
   font-weight: 700;
+  margin: 0;
 }
 .formControl{
+  position: relative;
   display: flex;
   flex-direction: column;
   text-align: start;
+  padding-top: 30px;
+}
+.show{
+  position: absolute;
+  bottom: 0;
+  right: 0;
+  cursor: pointer;
+  color: #003ABC;
+}
+.link{
+  color: #8b8beb;
+  text-decoration: none;
+}
+.formControl input:focus-visible{
+  outline: none;
 }
 .what{
   font-size: 24px;
 }
 .regForm{
+  padding: 50px 0; 
   display: flex;
   flex-direction: column;
-  gap: 50px;
+  /* gap: 50px; */
 }
 .regForm label{
-  font-size: 20px;
+  font-size: 18px;
   color: #969393;
 }
 .regForm input{
-  height: 40px;
+  height: 30px;
   border: none;
-  border-bottom: 2px solid #96939359;
-  font-size: 20px;
+  border-bottom: 2px solid rgba(212, 210, 210, 0.3);
+  font-size: 16px;
+  font-family: Poppins;
   color: #969393;
 }
 .regForm select{
   color: #003abc;
   width: fit-content;
   border: none;
-  font-size: 25px;
+  font-size: 20px;
+}
+.btnWrapper{
+  padding-top: 50px;
 }
 .createBtn{
   width: 100%;
+  margin-bottom: 30px;
   background: #024DAD;
   border: 0;
   border-radius: 10px;
-  font-family: Arial, Helvetica, sans-serif;
+  font-family: Poppins;
   font-size: 20px;
   color: #fff;
-  height: 72px;
+  padding: 12px;
+  /* height: 45px; */
 }
 .role{
   font-family: Arial, Helvetica, sans-serif;
@@ -186,6 +213,11 @@
   display: flex;
   align-items: center;
   justify-content: space-between;
+  padding-top: 30px;
+  padding-bottom: 80px;
+}
+.forgotPassword span{
+  color: #003ABC;
 }
 .rememberMe{
   display: flex;

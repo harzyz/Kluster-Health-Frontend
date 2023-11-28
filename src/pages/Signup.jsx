@@ -6,6 +6,7 @@ import { Link, useNavigate } from "react-router-dom";
 function Signup() {
   const navigate = useNavigate()
   
+  const [isValid, setIsValid] = useState(true);
   const [showPassword, setShowPassword] = useState(false);
   const [formData, setFormData] = useState({
     name: "",
@@ -17,15 +18,50 @@ function Signup() {
   const { name, email, password, user_type } = formData;
 
   const onChange = (e) => {
-    // console.log(e.target.value);
+
     setFormData((prev) => ({
       ...prev,
       [e.target.id]: e.target.value
     }))
   };
 
+  const validateForm = () => {
+    // Validate each field individually
+    const isNameValid = name.trim() !== '';
+    const isEmailValid = /^[^\s@]+@[^\s@]+\.[^\s@]+$/.test(email);
+    const isPasswordValid = password.trim() !== '';
+    const isUserTypeValid = user_type !== '';
+
+    // Update isValid state based on all validation checks
+    setIsValid(isNameValid && isEmailValid && isPasswordValid && isUserTypeValid);
+
+    // Return true if all fields are valid, otherwise false
+    return isNameValid && isEmailValid && isPasswordValid && isUserTypeValid;
+  };
+
   const onSubmit = (e) => {
-    e.preventDefault()
+    e.preventDefault();
+  
+    if (!validateForm()) {
+      // Display an error message or handle invalid form submission
+      toast.error('Please fill in all required fields');
+      return;
+    }
+  
+    setIsValid(true);
+  
+    if (isValid) {
+      if (formData.user_type === 'HP') {
+        navigate('/cdprofile');
+        fetchData();
+      } else {
+        navigate('/cprofile');
+        fetchData();
+      }
+    }
+  };
+
+  const fetchData = () => {
     let url = 'https://digital-healthcare-solution-v1.onrender.com/api/register/'
 
     fetch(url, {
@@ -36,16 +72,16 @@ function Signup() {
       body: JSON.stringify(formData)
     }).then((res) => res.json())
     .then((data) => {
-      console.log(data)
-      toast.success('Registered' + data.message);
-      if(formData.user_type === 'PT'){
-        navigate('/cprofile');
-      }else{
-        navigate('/cdprofile')
-      }
+      
+
+
+      toast.success('Registered');
+      console.log(data.message)
+      
     })
     .catch((err) => {
-      // toast.error('Failed');
+      toast.error('Failed',err);
+      navigate('/signup')
     });
     console.log(formData)
   }
@@ -62,6 +98,7 @@ function Signup() {
           <option value="PT">Patient</option>
           <option value="HP">Health</option>
         </select>
+        {!isValid && <p style={{ color: 'red' }}>Please select a valid option</p>}
         <div className={styles.formControl}>
           <label htmlFor="">Full Name</label>
           <input onChange={onChange} name='name' id='name' value={name} type="text" />
@@ -80,6 +117,7 @@ function Signup() {
             type={showPassword ? "text" : "password"}
           />
           <span
+            className={styles.show}
             onClick={() => {
               setShowPassword((prev) => !prev);
             }}>
@@ -88,7 +126,9 @@ function Signup() {
         </div>
 
         {/* <Link> */}
-          <button onClick={onSubmit} type='submit' className={styles.createBtn}>Create an Account</button>
+          <div className={styles.btnWrapper}>
+            <button onClick={onSubmit} type='submit' className={styles.createBtn}>Create an Account</button>
+          </div>
         {/* </Link> */}
       </form>
       <Link to="/">Login</Link>

@@ -36,7 +36,7 @@ function Login() {
     }).then((res) => res.json())
     .then((data) => {
       console.log(data)
-      toast.success('Registered' + data.message); 
+      toast.success('Registered'); 
       localStorage.setItem('token', data.access)
       localStorage.setItem('token', data.refresh)
       if(data.user_type === "PT"){
@@ -46,7 +46,7 @@ function Login() {
       }
     })
     .catch((err) => {
-      toast.error('User not Found', err.detail)
+      toast.error('User not Found')
       navigate('/')
     });
     console.log(formData)
@@ -71,6 +71,7 @@ function Login() {
             type={showPassword ? "text" : "password"}
           />
           <span
+            className={styles.show}
             onClick={() => {
               setShowPassword((prev) => !prev);
             }}>
@@ -86,7 +87,7 @@ function Login() {
         </div>
         <Link to='/cprofile'><button onClick={onSubmit} className={styles.createBtn}>Log in</button></Link>
 
-        <Link to='/signup'>Sign Up</Link>
+        <Link className={styles.link} to='/signup'>Sign Up</Link>
       </form>
     </div>
   );

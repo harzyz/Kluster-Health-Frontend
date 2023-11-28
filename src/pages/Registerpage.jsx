@@ -1,12 +1,17 @@
 import React from "react";
 import styles from "./Registerpage.module.css";
 import image from "../images/signupImg.png";
+import image1 from "../images/sing2img.png";
 import crossSvg from "../images/cross dark blue.png";
 import circleSvg from "../images/circle.png";
 import firstAidbx from "../images/doctor's first aid kit.png";
 import redCross from "../images/red cross sign.png";
+import Login from "./Login";
+
 
 function Registerpage({children}) {
+  const isLoginComponent = children && children.type === Login;
+  
 
   return (
     <div className={styles.wrapper}>
@@ -18,9 +23,15 @@ function Registerpage({children}) {
           <div className={styles.crossSvg}>
             <img src={crossSvg} alt="" />
           </div>
-          <img src={image} alt="" />
+          <img src={isLoginComponent ? image : image1} alt="" />
+          <div className={styles.firstAid}>
+            <img src={firstAidbx} alt="" />
+          </div >
+          <div className={styles.redCross}>
+          <img  src={redCross} alt="" />
+          </div>
         </div>
-        <div className={styles.whatWedo}>
+        {/* <div className={styles.whatWedo}>
           <img className={styles.firstAid} src={firstAidbx} alt="" />
           <img className={styles.redCross} src={redCross} alt="" />
           <h1 className={styles.head}>
@@ -35,7 +46,7 @@ function Registerpage({children}) {
             <li>What would you want to do?</li>
             <li>What would you want to do?</li>
           </ul>
-        </div>
+        </div> */}
       </section>
       <section className={styles.forms}>
       {children}
