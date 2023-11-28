@@ -234,7 +234,7 @@ h3{
   .wrapper{
     flex-direction: column-reverse;
     padding: 24px;
-    padding-bottom: 500px;
+    /* padding-bottom: 500px; */
   }
   .yearn{
     width: 50%;

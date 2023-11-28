@@ -9,6 +9,7 @@ function Login() {
 
   const navigate = useNavigate()
 
+  const [isValid, setIsValid] = useState(true);
   const [showPassword, setShowPassword] = useState(false);
   const [formData, setFormData] = useState({
     email: "",
@@ -24,8 +25,44 @@ function Login() {
     }))
   };
 
+  const validateForm = () => {
+    // Validate each field individually
+    
+    const isEmailValid = /^[^\s@]+@[^\s@]+\.[^\s@]+$/.test(email);
+    const isPasswordValid = password.trim() !== '';
+
+    // Update isValid state based on all validation checks
+    setIsValid(isEmailValid && isPasswordValid);
+
+    // Return true if all fields are valid, otherwise false
+    return isEmailValid && isPasswordValid;
+  };
+
   const onSubmit = (e) => {
     e.preventDefault()
+    
+    if (!validateForm()) {
+      // Display an error message or handle invalid form submission
+      toast.error('Please fill in all required fields');
+      return;
+    }else{
+      setIsValid(true);
+      toast.success('Registered');
+    }
+  
+  
+    if (isValid) {
+      if (formData.user_type === 'HP') {
+        fetchData();
+        navigate('/ddashboard');
+      } else {
+        fetchData();
+        navigate('/pdashboard');
+      }
+    }
+  }
+
+  const fetchData = () => {
     let url = 'https://digital-healthcare-solution-v1.onrender.com/api/token/obtain'
 
     fetch(url, {
