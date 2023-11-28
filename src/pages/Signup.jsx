@@ -95,7 +95,7 @@ function Signup() {
     <div className={styles.formsContainer}>
       <ToastContainer />
       <h2>Sign Up</h2>
-      <img src={image} alt="" />
+      <img className={styles.remove} src={image} alt="" />
       <form className={styles.regForm}>
         <select onChange={onChange} value={user_type} name="user_type" id='user_type'>
           <option value="">Choose Role</option>
@@ -135,7 +135,7 @@ function Signup() {
           </div>
         {/* </Link> */}
       </form>
-      <Link to="/">Login</Link>
+      <Link className={styles.link} to="/">Login</Link>
     </div>
   );
 }
