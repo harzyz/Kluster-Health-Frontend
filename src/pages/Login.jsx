@@ -1,29 +1,23 @@
-import React, { useState } from "react";
+import React, { useState, useContext } from "react";
 import { ToastContainer, toast } from 'react-toastify';
 import 'react-toastify/dist/ReactToastify.css';
 import styles from "./Registerpage.module.css";
 import { Link, useNavigate } from "react-router-dom";
 import image1 from "../images/sing2img.png";
+import AuthContext from "../context/AuthContext";
 
 function Login() {
 
+  const { formData, onChange } = useContext(AuthContext)
   const navigate = useNavigate()
 
   const [isValid, setIsValid] = useState(true);
   const [showPassword, setShowPassword] = useState(false);
-  const [formData, setFormData] = useState({
-    email: "",
-    password: ""
-  });
+  
 
   const { email, password} = formData;
 
-  const onChange = (e) => {
-    setFormData((prev) => ({
-      ...prev,
-      [e.target.id]: e.target.value
-    }))
-  };
+  
 
   const validateForm = () => {
     // Validate each field individually
@@ -32,7 +26,7 @@ function Login() {
     const isPasswordValid = password.trim() !== '';
 
     // Update isValid state based on all validation checks
-    setIsValid(isEmailValid && isPasswordValid);
+    // setIsValid(isEmailValid && isPasswordValid);
 
     // Return true if all fields are valid, otherwise false
     return isEmailValid && isPasswordValid;
@@ -45,23 +39,24 @@ function Login() {
       // Display an error message or handle invalid form submission
       toast.error('Please fill in all required fields');
       return;
-    }else{
+    }else if(isValid){
+      toast.success('Welcome');
       setIsValid(true);
-      toast.success('Registered');
+      fetchData();
     }
   
-  
-    if (isValid) {
-      if (formData.user_type === 'HP') {
-        fetchData();
-        navigate('/ddashboard');
-      } else {
-        fetchData();
-        navigate('/pdashboard');
-      }
-    }
   }
-
+  
+  // if (isValid) {
+  //   if (formData.user_type === 'HP') {
+  //     fetchData();
+  //     navigate('/ddashboard');
+  //   } else {
+  //     fetchData();
+  //     navigate('/pdashboard');
+  //   }
+  // }
+  
   const fetchData = () => {
     let url = 'https://digital-healthcare-solution-v1.onrender.com/api/token/obtain'
 
@@ -74,13 +69,13 @@ function Login() {
     }).then((res) => res.json())
     .then((data) => {
       console.log(data)
-      toast.success('Registered'); 
+      // toast.success('Welcome'); 
       localStorage.setItem('token', data.access)
       localStorage.setItem('token', data.refresh)
-      if(data.user_type === "PT"){
-        navigate('/pdashboard');
-      }else{
+      if(data.user_type === 'HP'){
         navigate('/ddashboard')
+      }else{
+        navigate('/pdashboard')
       }
     })
     .catch((err) => {
@@ -95,7 +90,9 @@ function Login() {
     <div className={styles.formsContainer}>
       <ToastContainer />
       <h2>Welcome</h2>
-      <img className={styles.remove} src={image1} alt="" />
+      <div className={styles.removestyle}>
+        <img className={styles.remove} src={image1} alt="" />
+      </div>
       <form className={styles.regForm}>
         <div className={styles.formControl}>
           <label>Email</label>
@@ -120,7 +117,7 @@ function Login() {
         <div className={styles.forgotPassword}>
           <div className={styles.rememberMe}>
             <input type="checkbox" name="" id="" />
-            <label htmlFor="">Remember Me</label>
+            <label >Remember Me</label>
           </div>
           <span>Forgot Password?</span>
         </div>

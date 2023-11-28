@@ -237,6 +237,12 @@
   .regInstructions{
     width: 100%;
   }
+  .rememberMe label{
+    font-size: 12px;
+  } 
+  .regForm{
+    padding-top: 0;
+  }  
   .forms{
     width: 100%;
   }
@@ -245,8 +251,18 @@
   }
   .remove{
     display: block;
+    height: 100%;
+  }
+  .removestyle{
+    display: flex;
+    justify-content: center;
+    height: 200px;
   }
   .formsContainer{
-    width: 80%;
+    width: 85%;
+  }
+  .forgotPassword span{
+    color: #003ABC;
+    font-size: 12px;
   }
 }
