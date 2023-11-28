@@ -1,12 +1,17 @@
 .wrapper{
-  background-image: url('../../images/signupBg.png');
   background-size: contain;
   width: 100%;
   height: 100%;
-  padding: 0px 72px;
+  padding: 0px 72px 30px 72px;
   padding-top: 20px;
-  /* background: #FFFFFF; */
-  font-family: Inter;
+  background: #EFEDEE;
+  font-family: Poppins;
+}
+.wrapper input:focus-visible{
+  outline: 2px solid #A6CBFA;
+}
+.wrapper textarea:focus-visible{
+  outline: 2px solid #A6CBFA;
 }
 h2{
   margin-top: 0;
@@ -77,11 +82,14 @@ h2{
   display: flex;
   justify-content: space-between;
 }
+.formControlgroup input{
+  border: none;
+}
 .medicationInfo{
   display: flex;
   flex-direction: column;
   width: 100%;
-  gap: 40px;
+  gap: 20px;
 }
 .bio label{
  font-size: 18px;
@@ -98,7 +106,7 @@ h2{
 }
 .formControl input,textarea{
   height: 40px;
-  border: 2px solid #969393;
+  border: none;
   border-radius: 5px;
   font-size: 16px;
   padding-left: 10px;
@@ -111,7 +119,7 @@ h2{
   height: 40px;
   padding-left: 10px;
   width: 100%;
-  border: 2px solid #969393;
+  border: none;
   border-radius: 5px;
   font-size: 16px;
   font-family: Arial, Helvetica, sans-serif;
@@ -119,6 +127,7 @@ h2{
 .formControl textarea{
   font-size: 16px;
   height: 80px;
+  border: none;
 }
 .createBtn{
   margin-top: 50px;   /*removelater */  
@@ -129,7 +138,7 @@ h2{
   font-family: Arial, Helvetica, sans-serif;
   font-size: 20px;
   color: #fff;
-  height: 72px;
+  height: 52px;
 }
 .formGroup{
   display: flex;

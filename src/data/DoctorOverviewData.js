@@ -53,7 +53,7 @@ const DoctorOverviewData = [
     email: 'janecooper@example.com',
     fileNumber: '5623780DG',
     addmitedDate: '12/02/23',
-    title: 'Inawctive'
+    title: 'Inactive'
   },
 ]
 
