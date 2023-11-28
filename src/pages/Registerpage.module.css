@@ -171,6 +171,9 @@
   border: none;
   font-size: 20px;
 }
+.regForm select:focus-visible{
+  outline: none;
+}
 .btnWrapper{
   padding-top: 50px;
 }
@@ -225,7 +228,7 @@
 }
 @media screen and (max-width: 500px) {
   .wrapper{
-    flex-direction: column-reverse;
+    flex-direction: column;
     height: 100%;
   }
   .regInstructions{
@@ -233,5 +236,11 @@
   }
   .forms{
     width: 100%;
+  }
+  .regImg{
+    display: none;
+  }
+  .formsContainer{
+    width: 80%;
   }
 }

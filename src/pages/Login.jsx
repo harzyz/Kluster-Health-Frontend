@@ -1,8 +1,9 @@
 import React, { useState } from "react";
 import { ToastContainer, toast } from 'react-toastify';
-  import 'react-toastify/dist/ReactToastify.css';
+import 'react-toastify/dist/ReactToastify.css';
 import styles from "./Registerpage.module.css";
 import { Link, useNavigate } from "react-router-dom";
+import image1 from "../images/sing2img.png";
 
 function Login() {
 
@@ -57,6 +58,7 @@ function Login() {
     <div className={styles.formsContainer}>
       <ToastContainer />
       <h2>Welcome</h2>
+      <img src={image1} alt="" />
       <form className={styles.regForm}>
         <div className={styles.formControl}>
           <label>Email</label>

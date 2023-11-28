@@ -23,7 +23,7 @@ function Registerpage({children}) {
           <div className={styles.crossSvg}>
             <img src={crossSvg} alt="" />
           </div>
-          <img src={isLoginComponent ? image : image1} alt="" />
+          <img src={isLoginComponent ? image1 : image} alt="" />
           <div className={styles.firstAid}>
             <img src={firstAidbx} alt="" />
           </div >

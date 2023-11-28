@@ -1,5 +1,6 @@
 import React, { useState } from "react";
 import { ToastContainer, toast } from 'react-toastify';
+import image from "../images/signupImg.png";
 import styles from "./Registerpage.module.css";
 import { Link, useNavigate } from "react-router-dom";
 
@@ -46,17 +47,19 @@ function Signup() {
       // Display an error message or handle invalid form submission
       toast.error('Please fill in all required fields');
       return;
+    }else{
+      setIsValid(true);
+      toast.success('Registered');
     }
   
-    setIsValid(true);
   
     if (isValid) {
       if (formData.user_type === 'HP') {
+        fetchData();
         navigate('/cdprofile');
-        fetchData();
       } else {
-        navigate('/cprofile');
         fetchData();
+        navigate('/cprofile');
       }
     }
   };
@@ -90,8 +93,9 @@ function Signup() {
 
   return (
     <div className={styles.formsContainer}>
-      <h2>Sign Up</h2>
       <ToastContainer />
+      <h2>Sign Up</h2>
+      <img src={image} alt="" />
       <form className={styles.regForm}>
         <select onChange={onChange} value={user_type} name="user_type" id='user_type'>
           <option value="">Choose Role</option>
