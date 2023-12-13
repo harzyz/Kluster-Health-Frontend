@@ -1,8 +1,8 @@
 import React from 'react'
 import styles from './Dashboardpage.module.css'
-import Navbar from '../../components/Navbar'
-import Sidebar from '../../components/Sidebar'
-import NavDownBar from '../../components/NavDownBar'
+import NavDownBar from '../../components/navbar.component/NavDownBar'
+import Sidebar from '../../components/sidebar.component/Sidebar'
+import Navbar from '../../components/navbar.component/Navbar'
 
 function Dashboardpage({children}) {
   return (

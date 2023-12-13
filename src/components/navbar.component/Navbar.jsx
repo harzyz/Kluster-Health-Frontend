@@ -1,9 +1,9 @@
 import React from "react";
 import styles from "./Navbar.module.css";
-import searchIcon from "../images/iconoir_search.svg";
-import notifyIcon from "../images/mi_notification.png";
-import profilePic from "../images/profilepic.png";
-import hamburger from "../images/icons/hamburger.png"
+import searchIcon from "../../images/iconoir_search.svg"
+import notifyIcon from "../../images/mi_notification.png";
+import profilePic from "../../images/profilepic.png";
+import hamburger from "../../images/icons/hamburger.png"
 
 function Navbar() {
   return (

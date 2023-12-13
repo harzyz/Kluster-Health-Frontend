@@ -3,7 +3,8 @@ import styles from "./ReminderViewAll.module.css";
 import Wrapper from "../../components/Wrapper";
 import ReminderData from "../../data/ReminderData";
 import CompletedData from "../../data/CompletedData";
-import Button from "../../components/Button";
+import Button from "../../components/button.component/Button";
+
 function ReminderViewAll() {
   return (
     <Wrapper>

@@ -39,6 +39,9 @@
   height: 40px;
   width: 400px;
 }
+.search input:focus-visible{
+  outline: none;
+}
 .profile{
   display: flex;
   align-items: center;

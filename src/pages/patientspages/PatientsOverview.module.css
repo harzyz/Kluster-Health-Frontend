@@ -42,11 +42,20 @@ h3{
   background-color: #FFFFFF;
   border-radius: 10px;
   box-shadow: rgba(0, 0, 0, 0.24) 0px 3px 8px;
+  /* animation: fade-in-down 2s ease infinite; */
 }
 .profileInfo{
   display: flex;
   flex-direction: column;
   gap: 8px;
+  overflow-x: scroll;
+}
+.profileInfo::-webkit-scrollbar{
+  height: 5px;
+}
+.profileInfo::-webkit-scrollbar-thumb{
+  background-color: grey;
+  border-radius: 999px;
 }
 .keyInfo{
   display: flex;
@@ -207,10 +216,25 @@ h3{
   padding-left: 10px;
   font-family: Arial, Helvetica, sans-serif;
 }
+.fade-in-down {
+  animation: fade-in-down 2s ease infinite;
+}
+@keyframes fade-in-down {
+  0% {
+    opacity: 0;
+    transform: translateY(-20px);
+  }
+  100% {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
 .formControlgroup{
   width: 45%;
+  display: flex;
+  flex-direction: column;
 }
-.formControlgroup input{
+.formControlgroup input, select{
   height: 40px;
   padding-left: 10px;
   width: 100%;

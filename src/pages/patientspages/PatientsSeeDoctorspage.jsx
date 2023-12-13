@@ -2,7 +2,7 @@ import React from "react";
 import styles from "./PatientsSeeDoctorspage.module.css";
 import PatientsSeeDoctorData from "../../data/PatientsSeeDoctorData";
 import Wrapper from "../../components/Wrapper";
-import Button from '../../components/Button'
+import Button from "../../components/button.component/Button";
 
 function PatientsSeeDoctorspage() {
   return (

@@ -1,7 +1,8 @@
 import React from "react";
 import styles from "./Overviewpage.module.css";
 import DoctorOverviewData from "../../data/DoctorOverviewData";
-import ActiveInactive from "../../components/ActiveInactive";
+import ActiveInactive from "../../components/active-inactive.component/ActiveInactive";
+
 
 function Overviewpage() {
   return (

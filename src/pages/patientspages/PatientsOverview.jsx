@@ -1,25 +1,32 @@
-import React, { useState } from "react";
+import React, { useContext, useState } from "react";
 import styles from "./PatientsOverview.module.css";
 import ReminderData from "../../data/ReminderData";
 import pfp from "../../images/patientspfp.png";
 import malepfp from "../../images/maledoctorpfp.png";
-import Button from "../../components/Button";
-import Modal from "../../components/Modal";
 import { Link } from "react-router-dom";
-import MedicationData from "../../data/Medications";
 import InviteDoctorsData from "../../data/InviteDoctorsData";
+import Medications from "../../components/medications.component/medications";
+import AuthContext from "../../context/AuthContext";
+import Button from "../../components/button.component/Button";
+import Modal from "../../components/modal.component/Modal";
 
 function PatientsOverview() {
-  const [open, setOpen] = useState(false);
-  const [open2, setOpen2] = useState(false);
-  const [modalMedication, setModalMedication] = useState({
-    medicationName: "",
-  });
 
-  const { medicationName } = modalMedication;
+  const { open, modalMedication, setModalMedication, setOpen, onSubmit, } = useContext(AuthContext);
+  
+  // For modal functions 
+  const [open2, setOpen2] = useState(false);
+ 
+  const {
+    medicationName,
+    startDate,
+    endDate,
+    prescribedBy,
+    dosageStrength,
+    dosageForm,
+  } = modalMedication;
 
   const onChange = (e) => {
-    // console.log(e.target.value);
     setModalMedication((prev) => ({
       ...prev,
       [e.target.id]: e.target.value,
@@ -32,7 +39,8 @@ function PatientsOverview() {
   const onClose2 = () => {
     setOpen2(false);
   };
-  // console.log(open, "open");
+
+
   return (
     <div className={styles.wrapper}>
       <div className={styles.medicationsWrapper}>
@@ -48,36 +56,13 @@ function PatientsOverview() {
                 title={"Add"}
                 bg="#A6CBFA"
               />
-              <span className={styles.viewall}>View all</span>
+              <Link className={styles.link} to="/pmedication">
+                <span className={styles.viewall}>View all</span>
+              </Link>
             </div>
           </div>
-          <div className={styles.medicationPrescription}>
-            {MedicationData.map((item) => (
-              <div key={item.id} className={styles.medicationsTab}>
-                <div className={styles.profileInfo}>
-                  <span>Medication Name: {item.medicationName}</span>
-                  <span>12Mygt</span>
-                </div>
-                <div className={styles.keyInfo}>
-                  <div className={styles.detailKey}>
-                    <span>Start: {item.startDate}</span>
-                    <span>End: {item.endDate}</span>
-                  </div>
-                  <div className={styles.detailKey}>
-                    <span>Prescribed by: {item.prescribedBy}</span>
-                    <span>Prescribed in: {item.prescribedIn}</span>
-                  </div>
-                  <div className={styles.detailKey}>
-                    <span>Dosage strength: {item.dosageStrength}</span>
-                    <span>Dosage form: {item.dosageForm}</span>
-                  </div>
-                </div>
-              </div>
-            ))}
-            <div></div>
-          </div>
+          <Medications />
         </div>
-
         <div className={styles.reminderConfirm}>
           <div className={styles.head}>
             <h3>Reminders</h3>
@@ -97,9 +82,7 @@ function PatientsOverview() {
           </div>
           <div className={styles.reminderConfirmItem}>
             {ReminderData.map((item) => (
-              <div
-                key={item.id}
-                className={styles.medReminder}>
+              <div key={item.id} className={styles.medReminder}>
                 <div className={styles.medicationDetails}>
                   <span>{item.medName}</span>
                   <span>{item.medFreq}</span>
@@ -124,18 +107,23 @@ function PatientsOverview() {
           <div className={styles.whitePart}>
             {InviteDoctorsData.map((item) => (
               <div key={item.id} className={styles.adoctor}>
-              <div className={styles.profileContainer}>
-                <div className={styles.patientspfp}>
-                  <img src={malepfp} alt="" />
-                </div>
-                <div className={styles.profileInfo}>
-                  <Button w='fit-content' p='4px 13px' bg="#A6CBFA" title="Change" />
-                  <span>{item.doctorName}</span>
-                  <span>{item.proffesion}</span>
-                  <span>{item.email}</span>
+                <div className={styles.profileContainer}>
+                  <div className={styles.patientspfp}>
+                    <img src={malepfp} alt="" />
+                  </div>
+                  <div className={styles.profileInfo}>
+                    <Button
+                      w="fit-content"
+                      p="4px 13px"
+                      bg="#A6CBFA"
+                      title="Change"
+                    />
+                    <span>{item.doctorName}</span>
+                    <span>{item.proffesion}</span>
+                    <span>{item.email}</span>
+                  </div>
                 </div>
               </div>
-            </div>
             ))}
             <Button fs="18px" h="52px" title="Invite Doctors" bg="#024DAD" />
           </div>
@@ -175,7 +163,7 @@ function PatientsOverview() {
           style={{ background: "white", borderRadius: "20px" }}>
           <div className={styles.nxtForm}>
             <h3>Medication Information</h3>
-            <form className={styles.medicationInfo}>
+            <form className={styles.medicationInfo} onSubmit={onSubmit}>
               <div className={styles.formControl}>
                 <label>Name of medication</label>
                 <input
@@ -189,41 +177,63 @@ function PatientsOverview() {
               <div className={styles.formControl1}>
                 <div className={styles.formControlgroup}>
                   <label>Start Date</label>
-                  <input type="text" placeholder="Start Date" />
+                  <input
+                    type="date"
+                    placeholder="Start Date"
+                    id="startDate"
+                    onChange={onChange}
+                    value={startDate}
+                  />
                 </div>
                 <div className={styles.formControlgroup}>
                   <label>End Date</label>
-                  <input type="text" placeholder="End Date" />
+                  <input
+                    type="date"
+                    placeholder="End Date"
+                    id="endDate"
+                    onChange={onChange}
+                    value={endDate}
+                  />
                 </div>
               </div>
               <div className={styles.formControl}>
                 <label>Prescribed by</label>
-                <input type="text" placeholder="Prescribed by" />
-              </div>
-              <div className={styles.formControl}>
-                <label>Prescribed in</label>
-                <input type="text" placeholder="Prescribed in" />
+                <input
+                  type="text"
+                  placeholder="Prescribed by"
+                  id="prescribedBy"
+                  onChange={onChange}
+                  value={prescribedBy}
+                />
               </div>
               <div className={styles.formControl1}>
                 <div className={styles.formControlgroup}>
                   <label>Dosage Strength</label>
-                  <input type="text" placeholder="Dosage Strength" />
+                  <input
+                    type="text"
+                    placeholder="Dosage Strength"
+                    id="dosageStrength"
+                    onChange={onChange}
+                    value={dosageStrength}
+                  />
                 </div>
                 <div className={styles.formControlgroup}>
                   <label>Dosage Form</label>
-                  <input type="text" placeholder="Dosage Form" />
+                  <select
+                    id="dosageForm"
+                    onChange={onChange}
+                    value={dosageForm}>
+                    <option >Choose Form</option>
+                    <option>Capsule</option>
+                    <option>Tablet</option>
+                    <option>Syrup</option>
+                    <option>Ointment</option>
+                  </select>
                 </div>
-              </div>
-              <div className={styles.formControl}>
-                <label>Administration Route</label>
-                <input type="text" placeholder="Administration Route" />
-              </div>
-              <div className={styles.formControl}>
-                <label>Administration Frequency</label>
-                <input type="text" placeholder="Administration Frequency" />
               </div>
               <div className={styles.btnposition}>
                 <Button
+                  type='submit'
                   fs="18px"
                   h="52px"
                   w="400px"

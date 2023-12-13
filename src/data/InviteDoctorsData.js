@@ -6,7 +6,7 @@ const InviteDoctorsData = [
     email: 'kluster@gmail.com'
   },
   {
-    id: 1,
+    id: 2,
     doctorName: 'Dr Kluster',
     proffesion: 'Gynecologist',
     email: 'kluster@gmail.com'

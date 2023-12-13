@@ -10,7 +10,7 @@ const MedicationData = [
     dosageForm: 'Oral',
   },
   {
-    id: 1,
+    id: 2,
     medicationName: 'Armatem Soft Gel',
     startDate: '22/11/2023',
     endDate: '25/11/2023',

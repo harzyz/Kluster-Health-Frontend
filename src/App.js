@@ -12,6 +12,7 @@ import Login from "./pages/Login";
 import DoctorsProfileCreate from "./pages/doctorspages/DoctorsProfileCreate";
 import ReminderViewAll from "./pages/patientspages/ReminderViewAll";
 import { AuthProvider } from "./context/AuthContext";
+import MedicationViewAll from "./components/medication-view-all.component/medication-view-all";
 // import Auth from './Auth';
 
 function App() {
@@ -67,6 +68,14 @@ function App() {
               element={
                 <PatientDashboardpage>
                   <ReminderViewAll />
+                </PatientDashboardpage>
+              }
+            />
+            <Route
+              path="/pmedication"
+              element={
+                <PatientDashboardpage>
+                  <MedicationViewAll />
                 </PatientDashboardpage>
               }
             />

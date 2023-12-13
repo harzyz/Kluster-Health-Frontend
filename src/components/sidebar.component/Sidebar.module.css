@@ -8,7 +8,8 @@
   flex-direction: column;
   height: calc(100vh - 72px);
   align-items: center;
-  gap: 20px;
+  justify-content: space-between;
+  /* gap: 20px; */
 }
 .wrapper button{
   width: 120px;
@@ -19,6 +20,7 @@
   border-radius: 10px;
   font-size: 18px;
   font-weight: 700;
+  margin: 0 auto;
 } 
 .barContainer{
   width: 100%;
@@ -35,13 +37,17 @@
 .sidebarItem{
   display: flex;
   gap: 20px;
+  align-items: center;
   padding: 12px 0;
+  font-size: 16px;
   padding-left: 10px;
   border-radius: 0px 20px 20px 0px;
   cursor: pointer;
 }
 .sidebarItem:hover{
   background-color: #024DAD;
+  color: #fff;
+  font-weight: 900;
 }
 .sidebarItem:focus-visible{
   background-color: #024DAD;
