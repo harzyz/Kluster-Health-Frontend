@@ -32,19 +32,17 @@ function Login() {
     e.preventDefault();
 
     if (!validateForm()) {
-      // Display an error message or handle invalid form submission
       toast.error("Invalid Credentials");
       return;
     } else if (isValid) {
-      // toast.success('Welcome');
+      toast.success('Welcome');
       fetchData();
-      // setIsValid(true);
     }
   };
 
   const fetchData = async () => {
-    try {
-      let url = "https://digital-healthcare-solution-v1.onrender.com/api/login";
+    
+      let url = "https://digital-healthcare-solution-v1.onrender.com/api/token/obtain/";
 
       const response = await fetch(url, {
         method: "POST",
@@ -53,37 +51,21 @@ function Login() {
         },
         body: JSON.stringify(formData),
       });
-      const result = await response.json();
-      console.log(result, 'result')
-      return result 
+      try {
+      const data = await response.json();
+      console.log(data);
+      localStorage.setItem("token", data.access);
+      localStorage.setItem("refresh", data.refresh);
+      if (data.user_type === "HP") {
+        navigate("/ddashboard");
+      } else {
+        navigate("/pdashboard");
+      }
     } catch (error) {
-      console.log(error, 'error')
-      toast.error('Something went Wrong')
+      toast.error("User not Found");
+      navigate("/");
     }
   };
-
-  // fetch(url, {
-  //   method: 'POST',
-  //   headers: {
-  //     "Content-Type": "application/json",
-  //   },
-  //   body: JSON.stringify(formData)
-  // }).then((res) => res.json())
-  // .then((data) => {
-  //   console.log(data)
-  //   localStorage.setItem('token', data.access)
-  //   localStorage.setItem('token', data.refresh)
-  //   if(data.user_type === 'HP'){
-  //     navigate('/ddashboard')
-  //   }else{
-  //     navigate('/pdashboard')
-  //   }
-  // })
-  // .catch((err) => {
-  //   toast.error('User not Found')
-  //   navigate('/')
-  // });
-  // console.log(formData)
 
   return (
     <div className={styles.formsContainer}>
